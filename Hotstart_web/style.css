@@ -1,0 +1,603 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #08090b;
+    color: #ffffff;
+
+    font-family: "Roboto", Arial, sans-serif;
+
+    overflow-x: hidden;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    width: 68px;
+    height: 100vh;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 7, 10, 0.99),
+            rgba(5, 7, 10, 0.94)
+        );
+
+    overflow: hidden;
+
+    transition: width 0.25s ease;
+}
+
+.sidebar:hover {
+    width: 220px;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+
+    padding-left: 22px;
+
+    white-space: nowrap;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+    color: white;
+}
+
+.logo img {
+    width: 130px;
+    height: auto;
+
+    margin-left: 10px;
+
+    object-fit: contain;
+
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+}
+
+.sidebar:hover .logo img {
+    opacity: 1;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.nav-item {
+    position: relative;
+
+    width: 100%;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 24px;
+
+    color: #9b9da1;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.nav-item i {
+    flex: 0 0 21px;
+
+    width: 21px;
+
+    font-size: 15px;
+
+    text-align: center;
+}
+
+.nav-item span {
+    margin-left: 19px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+}
+
+.sidebar:hover .nav-item span {
+    opacity: 1;
+}
+
+.nav-item:hover {
+    color: #ffffff;
+}
+
+.nav-item.active {
+    color: #ffffff;
+}
+
+.nav-item.active::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 6px;
+
+    width: 3px;
+    height: 30px;
+
+    border-radius: 0 4px 4px 0;
+
+    background: #00aaff;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #08090b;
+
+    overflow: hidden;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 550px;
+
+    overflow: hidden;
+}
+
+/* Hero background */
+
+.hero-image {
+    position: absolute;
+
+    inset: 0;
+
+    background-image: url("assets/ghost-train.jpg");
+
+    background-size: cover;
+    background-position: center right;
+
+    transform: scale(1.01);
+}
+
+/* Hero overlay */
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #08090b 0%,
+            rgba(8, 9, 11, 0.95) 12%,
+            rgba(8, 9, 11, 0.82) 27%,
+            rgba(8, 9, 11, 0.35) 53%,
+            rgba(8, 9, 11, 0) 78%
+        ),
+
+        linear-gradient(
+            0deg,
+            #08090b 0%,
+            rgba(8, 9, 11, 0) 30%
+        );
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+    position: absolute;
+
+    left: 76px;
+    top: 210px;
+
+    z-index: 2;
+
+    width: 340px;
+}
+
+.small-label {
+    margin-bottom: 10px;
+
+    color: #1697ff;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hero-content h1 {
+    margin-bottom: 12px;
+
+    color: #e50914;
+
+    font-size: 34px;
+    line-height: 1;
+
+    letter-spacing: 6px;
+
+    font-weight: 800;
+
+    text-shadow:
+        0 0 8px rgba(229, 9, 20, 0.15);
+}
+
+/* =========================
+   MOVIE INFO
+========================= */
+
+.movie-info {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+
+    color: #e0e0e0;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.description {
+    width: 325px;
+
+    margin-bottom: 17px;
+
+    color: #d3d3d3;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================
+   GENRES
+========================= */
+
+.genres {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 27px;
+
+    color: #f1f1f1;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.watch-btn {
+    width: 225px;
+    height: 36px;
+
+    border: 0;
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0789f8,
+            #df006c
+        );
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+.watch-btn:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+}
+
+.watch-btn i {
+    margin-right: 8px;
+
+    font-size: 12px;
+}
+
+.add-btn {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 5px;
+
+    background: rgba(255, 255, 255, 0.2);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.add-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+
+/* =========================
+   CONTENT SECTION
+========================= */
+
+.content-section {
+    position: relative;
+
+    z-index: 10;
+
+    margin-top: -45px;
+    margin-right: 55px;
+    margin-left: 76px;
+}
+
+.section-header {
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 8px;
+}
+
+.section-header h2 {
+    color: #eeeeee;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.section-arrow {
+    width: 26px;
+    height: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 4px;
+
+    border: none;
+
+    color: #aaa;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.section-arrow:hover {
+    color: #ffffff;
+}
+
+.section-arrow i {
+    font-size: 10px;
+}
+
+/* =========================
+   CARD ROW
+========================= */
+
+.card-row {
+    width: 100%;
+
+    display: flex;
+
+    gap: 7px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 2px 4px 9px 0;
+
+    scrollbar-width: thin;
+}
+
+.card-row::-webkit-scrollbar {
+    height: 5px;
+}
+
+/* =========================
+   MOVIE CARD
+========================= */
+
+.movie-card {
+    position: relative;
+
+    flex: 0 0 132px;
+
+    width: 132px;
+    height: 185px;
+
+    overflow: hidden;
+
+    border-radius: 3px;
+
+    background: #17191d;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+.movie-card img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.movie-card:hover {
+    z-index: 20;
+
+    transform: scale(1.05);
+
+    filter: brightness(1.1);
+}
+
+/* Card gradient */
+
+.movie-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.5),
+            transparent 45%
+        );
+}
+
+/* =========================
+   CARD LABEL
+========================= */
+
+.card-overlay {
+    position: absolute;
+
+    top: 8px;
+    left: 8px;
+
+    z-index: 2;
+}
+
+.card-overlay span {
+    display: inline-block;
+
+    padding: 4px 6px;
+
+    border-radius: 2px;
+
+    background: #e90078;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+/* =========================
+   SECOND SECTION
+========================= */
+
+.second-section {
+    margin-top: 32px;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #08090b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
